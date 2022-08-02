@@ -3,12 +3,12 @@
 
   <form action=""> <!--Formulario para registro de usuario-->
     <div class="form-floating mb-3"> <!--En los inputs nombreInput y apellidoInput se utiliza Two-Way-Binding en los atributos 'nombre' y 'apellido' del componente. También se aplica Event Binding en ambos inputs que llaman a una función del componente-->
-      <input type="text" class="form-control" name="nombreInput" id="nombreInput" placeholder="Nombre" [(ngModel)]="nombre" (input)="setRegistrado(false)" required>
+      <input type="text" class="form-control" name="nombreInput" id="nombreInput" placeholder="Nombre" [(ngModel)]="nombre" (input)="setRegistrado(false)" (input)="setUsuarioExiste(false)" required>
       <label for="nombreInput">Nombre</label>
     </div>
 
     <div class="form-floating">
-      <input type="text" class="form-control" name="apellidoInput" id="apellidoInput" placeholder="Apellido" [(ngModel)]="apellido" (input)="setRegistrado(false)" required>
+      <input type="text" class="form-control" name="apellidoInput" id="apellidoInput" placeholder="Apellido" [(ngModel)]="apellido" (input)="setRegistrado(false)" (input)="setUsuarioExiste(false)" required>
       <label for="apellidoInput">Apellido</label>
     </div>
 
@@ -23,7 +23,10 @@
   <!--El contenido de los ng-template no es renderizado por la aplicación de forma predeterminada. Solo se muestra si 'registrado' es false-->
   <ng-template #sinRegistrarMsj> <!--#sinRegistrarMsj es un identificador que se le da al elemento para referenciarlo-->
     <p>Usuario sin registrar</p>
-  </ng-template>  
+  </ng-template>
+
+  <!--Muestra mensaje de error si el usuario que se quiere registrar existe en el array 'usuarios'-->
+  <p *ngIf="usuarioExiste">Usuario con el apellido y nombre "{{apellido}}, {{nombre}}" ya existe</p>
 
   <!--Muestra los valores de los usuarios dentro del array 'usuarios' del componente-->
   <h2>Usuarios</h2>
@@ -31,5 +34,5 @@
     <li>Nombre: {{usuario.nombre}}</li>
     <li>Apellido: {{usuario.apellido}}</li>
     <li>Índice: {{i}}</li>
-  </ul>  
+  </ul>
 </div>
