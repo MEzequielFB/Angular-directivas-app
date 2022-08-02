@@ -28,16 +28,16 @@ export class AppComponent {
 
     this.usuarios = [
       {
-        nombre: "Juan",
-        apellido: "Bautista"
+        "nombre": "juan",
+        "apellido": "bautista"
       },
       {
-        nombre: "Fernando",
-        apellido: "Fernández"
+        "nombre": "fernando",
+        "apellido": "fernández"
       },
       {
-        nombre: "Matías",
-        apellido: "Colmena"
+        "nombre": "matías",
+        "apellido": "colmena"
       }
     ]
   }
@@ -49,8 +49,8 @@ export class AppComponent {
 
       let usuarioNuevo = 
       {
-        nombre: this.nombre,
-        apellido: this.apellido
+        nombre: this.nombre.toLowerCase(),
+        apellido: this.apellido.toLowerCase()
       };
 
       this.usuarios.push(usuarioNuevo);
@@ -72,7 +72,7 @@ export class AppComponent {
     for (let usuario of this.usuarios) {
 
       //Si existe el usuario ...
-      if (usuario.nombre == this.nombre && usuario.apellido == this.apellido) {
+      if (usuario.nombre == this.nombre.toLowerCase() && usuario.apellido == this.apellido.toLowerCase()) {
 
         this.usuarioExiste = true;
         this.registrado = false;

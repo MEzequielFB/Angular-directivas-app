@@ -10,3 +10,6 @@ form input {
 form button {
     margin-top: 1%;
 }
+.toCapital {
+    text-transform: capitalize;
+}

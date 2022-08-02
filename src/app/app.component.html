@@ -18,7 +18,7 @@
 
   <!--Directiva ngIf para mostrar un mensaje sobre el registro de un usuario-->
   <!--Si el atributo 'registrado' es true muestra el siguiente párrafo, de lo contrario muestra el contenido del ng-template-->
-  <p *ngIf="registrado; else sinRegistrarMsj">Usuario registrado con el nombre  "{{apellido}}, {{nombre}}"</p> <!--Property Binding de 'apellido' y 'nombre'-->
+  <p *ngIf="registrado; else sinRegistrarMsj">Usuario registrado con el nombre  <span class="toCapital">"{{apellido}}, {{nombre}}"</span></p> <!--Property Binding de 'apellido' y 'nombre'-->
 
   <!--El contenido de los ng-template no es renderizado por la aplicación de forma predeterminada. Solo se muestra si 'registrado' es false-->
   <ng-template #sinRegistrarMsj> <!--#sinRegistrarMsj es un identificador que se le da al elemento para referenciarlo-->
@@ -26,11 +26,11 @@
   </ng-template>
 
   <!--Muestra mensaje de error si el usuario que se quiere registrar existe en el array 'usuarios'-->
-  <p *ngIf="usuarioExiste">Usuario con el apellido y nombre "{{apellido}}, {{nombre}}" ya existe</p>
+  <p *ngIf="usuarioExiste">Usuario con el apellido y nombre <span class="toCapital">"{{apellido}}, {{nombre}}"</span> ya existe</p>
 
   <!--Muestra los valores de los usuarios dentro del array 'usuarios' del componente-->
   <h2>Usuarios</h2>
-  <ul *ngFor="let usuario of usuarios; let i=index"> <!--Se declara una variable i con el valor de index ==> Obtiene el índice del elemento-->
+  <ul *ngFor="let usuario of usuarios; let i=index" class="toCapital"> <!--Se declara una variable i con el valor de index ==> Obtiene el índice del elemento-->
     <li>Nombre: {{usuario.nombre}}</li>
     <li>Apellido: {{usuario.apellido}}</li>
     <li>Índice: {{i}}</li>
