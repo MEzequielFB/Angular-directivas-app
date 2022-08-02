@@ -1,8 +1,8 @@
 <div class="container-fluid">
-  <h1>Bienvenido a {{titulo}}</h1>
+  <h1>Bienvenido a {{titulo}}</h1> <!--Property Binding con atributo 'titulo' del componente-->
 
-  <form action="">
-    <div class="form-floating mb-3">
+  <form action=""> <!--Formulario para registro de usuario-->
+    <div class="form-floating mb-3"> <!--En los inputs nombreInput y apellidoInput se utiliza Two-Way-Binding en los atributos 'nombre' y 'apellido' del componente. También se aplica Event Binding en ambos inputs que llaman a una función del componente-->
       <input type="text" class="form-control" name="nombreInput" id="nombreInput" placeholder="Nombre" [(ngModel)]="nombre" (input)="setRegistrado(false)" required>
       <label for="nombreInput">Nombre</label>
     </div>
@@ -12,8 +12,16 @@
       <label for="apellidoInput">Apellido</label>
     </div>
 
+    <!--Event Binding en el botón del formulario-->
     <button type="submit" class="btn btn-light" (click)="registrarUsuario()">Registrarse</button>
   </form>
 
-  <p *ngIf="registrado">Usuario registrado con el nombre  "{{apellido}}, {{nombre}}"</p>
+  <!--Directiva ngIf para mostrar un mensaje sobre el registro de un usuario-->
+  <!--Si el atributo 'registrado' es true muestra el siguiente párrafo, de lo contrario muestra el contenido del ng-template-->
+  <p *ngIf="registrado; else sinRegistrarMsj">Usuario registrado con el nombre  "{{apellido}}, {{nombre}}"</p> <!--Property Binding de 'apellido' y 'nombre'-->
+
+  <!--El contenido de los ng-template no es renderizado por la aplicación de forma predeterminada. Solo se muestra si 'registrado' es false-->
+  <ng-template #sinRegistrarMsj>
+    <p>Usuario sin registrar</p>
+  </ng-template>
 </div>

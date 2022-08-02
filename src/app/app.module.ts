@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, FormsModule    
+    BrowserModule, FormsModule //Importa módulo para utilizar directivas => ngModel
   ],
   providers: [],
   bootstrap: [AppComponent]
