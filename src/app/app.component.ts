@@ -14,6 +14,8 @@ export class AppComponent {
 
   registrado:boolean;
 
+  usuarios:Array<{nombre:string, apellido:string}>; //Atributo de tipo array. Se deben declarar sus atributos y el tipo de estos
+
   constructor() { //Da valores a los atributos
 
     this.titulo = "DirectivasApp";
@@ -21,6 +23,21 @@ export class AppComponent {
     this.apellido = "";
 
     this.registrado = false;
+
+    this.usuarios = [
+      {
+        nombre: "Juan",
+        apellido: "Bautista"
+      },
+      {
+        nombre: "Fernando",
+        apellido: "Fernández"
+      },
+      {
+        nombre: "Matías",
+        apellido: "Colmena"
+      }
+    ]
   }
 
   registrarUsuario() { //Registra al usuario si los valores de 'nombre' y 'apellido' no son vacíos

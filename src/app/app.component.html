@@ -21,7 +21,15 @@
   <p *ngIf="registrado; else sinRegistrarMsj">Usuario registrado con el nombre  "{{apellido}}, {{nombre}}"</p> <!--Property Binding de 'apellido' y 'nombre'-->
 
   <!--El contenido de los ng-template no es renderizado por la aplicación de forma predeterminada. Solo se muestra si 'registrado' es false-->
-  <ng-template #sinRegistrarMsj>
+  <ng-template #sinRegistrarMsj> <!--#sinRegistrarMsj es un identificador que se le da al elemento para referenciarlo-->
     <p>Usuario sin registrar</p>
-  </ng-template>
+  </ng-template>  
+
+  <!--Muestra los valores de los usuarios dentro del array 'usuarios' del componente-->
+  <h2>Usuarios</h2>
+  <ul *ngFor="let usuario of usuarios; let i=index"> <!--Se declara una variable i con el valor de index ==> Obtiene el índice del elemento-->
+    <li>Nombre: {{usuario.nombre}}</li>
+    <li>Apellido: {{usuario.apellido}}</li>
+    <li>Índice: {{i}}</li>
+  </ul>  
 </div>
