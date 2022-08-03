@@ -13,3 +13,7 @@ form button {
 .toCapital {
     text-transform: capitalize;
 }
+.usuarioDestacado {
+    font-weight: bold;
+    color: brown;
+}

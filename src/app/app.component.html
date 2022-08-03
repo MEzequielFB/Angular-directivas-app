@@ -29,8 +29,8 @@
   <p *ngIf="usuarioExiste">Usuario con el apellido y nombre <span class="toCapital">"{{apellido}}, {{nombre}}"</span> ya existe</p>
 
   <!--Muestra los valores de los usuarios dentro del array 'usuarios' del componente-->
-  <h2>Usuarios</h2>
-  <ul *ngFor="let usuario of usuarios; let i=index" class="toCapital"> <!--Se declara una variable i con el valor de index ==> Obtiene el índice del elemento-->
+  <h2>Usuarios</h2><!--[ngClass aplica una clase a un elemento en el caso de que se cumpla con una condición. Aplica la clase 'usuarioDestacado' si el índide el usuario es par]-->
+  <ul *ngFor="let usuario of usuarios; let i=index" class="toCapital" [ngClass]="{usuarioDestacado: i % 2 == 0}"> <!--Se declara una variable i con el valor de index ==> Obtiene el índice del elemento-->
     <li>Nombre: {{usuario.nombre}}</li>
     <li>Apellido: {{usuario.apellido}}</li>
     <li>Índice: {{i}}</li>
