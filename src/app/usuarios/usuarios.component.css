@@ -1,0 +1,15 @@
+label {
+    color: black;
+}
+form {
+    width: 20%;
+}
+form input {
+    height: 60px;
+}
+form button {
+    margin-top: 1%;
+}
+.toCapital {
+    text-transform: capitalize;
+}

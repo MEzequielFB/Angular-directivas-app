@@ -1,38 +1,5 @@
 <div class="container-fluid">
   <h1>Bienvenido a {{titulo}}</h1> <!--Property Binding con atributo 'titulo' del componente-->
 
-  <form action=""> <!--Formulario para registro de usuario-->
-    <div class="form-floating mb-3"> <!--En los inputs nombreInput y apellidoInput se utiliza Two-Way-Binding en los atributos 'nombre' y 'apellido' del componente. También se aplica Event Binding en ambos inputs que llaman a una función del componente-->
-      <input type="text" class="form-control" name="nombreInput" id="nombreInput" placeholder="Nombre" [(ngModel)]="nombre" (input)="setRegistrado(false)" (input)="setUsuarioExiste(false)" required>
-      <label for="nombreInput">Nombre</label>
-    </div>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" name="apellidoInput" id="apellidoInput" placeholder="Apellido" [(ngModel)]="apellido" (input)="setRegistrado(false)" (input)="setUsuarioExiste(false)" required>
-      <label for="apellidoInput">Apellido</label>
-    </div>
-
-    <!--Event Binding en el botón del formulario-->
-    <button type="submit" class="btn btn-light" (click)="registrarUsuario()">Registrarse</button>
-  </form>
-
-  <!--Directiva ngIf para mostrar un mensaje sobre el registro de un usuario-->
-  <!--Si el atributo 'registrado' es true muestra el siguiente párrafo, de lo contrario muestra el contenido del ng-template-->
-  <p *ngIf="registrado; else sinRegistrarMsj">Usuario registrado con el nombre  <span class="toCapital">"{{apellido}}, {{nombre}}"</span></p> <!--Property Binding de 'apellido' y 'nombre'-->
-
-  <!--El contenido de los ng-template no es renderizado por la aplicación de forma predeterminada. Solo se muestra si 'registrado' es false-->
-  <ng-template #sinRegistrarMsj> <!--#sinRegistrarMsj es un identificador que se le da al elemento para referenciarlo-->
-    <p>Usuario sin registrar</p>
-  </ng-template>
-
-  <!--Muestra mensaje de error si el usuario que se quiere registrar existe en el array 'usuarios'-->
-  <p *ngIf="usuarioExiste">Usuario con el apellido y nombre <span class="toCapital">"{{apellido}}, {{nombre}}"</span> ya existe</p>
-
-  <!--Muestra los valores de los usuarios dentro del array 'usuarios' del componente-->
-  <h2>Usuarios</h2><!--[ngClass aplica una clase a un elemento en el caso de que se cumpla con una condición. Aplica la clase 'usuarioDestacado' si el índide el usuario es par]-->
-  <ul *ngFor="let usuario of usuarios; let i=index" class="toCapital" [ngClass]="{usuarioDestacado: i % 2 == 0}"> <!--Se declara una variable i con el valor de index ==> Obtiene el índice del elemento-->
-    <li>Nombre: {{usuario.nombre}}</li>
-    <li>Apellido: {{usuario.apellido}}</li>
-    <li>Índice: {{i}}</li>
-  </ul>
+  <app-usuarios></app-usuarios>
 </div>
